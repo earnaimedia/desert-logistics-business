@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
-import { api } from "../convex/_generated/api";
+import { anyApi } from "convex/server";
 import { discountForVolume, distanceLabels, pricing, serviceLabels, speedLabels, type DistanceKey, type LeadInput, type ServiceKey, type SpeedKey } from "../lib/pricing";
 
 type QuoteState = {
@@ -39,7 +39,15 @@ function estimateRange(serviceType: ServiceKey, speed: SpeedKey, distance: Dista
 }
 
 export function QuoteForm() {
-  const createLead = useMutation(api.leads.createLead);
+  if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
+    return <DisconnectedQuoteForm />;
+  }
+
+  return <ConnectedQuoteForm />;
+}
+
+function ConnectedQuoteForm() {
+  const createLead = useMutation(anyApi.leads.createLead);
   const [lead, setLead] = useState(initialLead);
   const [quoteState, setQuoteState] = useState<QuoteState | null>(null);
   const [status, setStatus] = useState("");
@@ -188,6 +196,56 @@ export function QuoteForm() {
           {isSubmitting ? "Saving lead..." : "Create quote and save lead"}
         </button>
         <p className="form-status">{status}</p>
+      </form>
+    </section>
+  );
+}
+
+function DisconnectedQuoteForm() {
+  const [lead, setLead] = useState(initialLead);
+  const estimatedRange = estimateRange(lead.serviceType, lead.deliverySpeed, lead.distanceBand, lead.deliveriesPerMonth);
+
+  return (
+    <section id="quote" className="quote-shell">
+      <div className="quote-intro">
+        <p className="eyebrow">Functional quote capture</p>
+        <h2>Quote flow ready. Convex connection pending.</h2>
+        <p className="section-copy">
+          The UI is in place, but `NEXT_PUBLIC_CONVEX_URL` still needs to be configured before live leads can be saved.
+        </p>
+        <div className="quote-meter">
+          <span>Live estimate</span>
+          <strong>
+            ${estimatedRange[0]}-${estimatedRange[1]}
+          </strong>
+          <small>
+            {serviceLabels[lead.serviceType]}, {speedLabels[lead.deliverySpeed]}, {distanceLabels[lead.distanceBand]}
+          </small>
+        </div>
+      </div>
+
+      <form className="lead-form">
+        <div className="form-grid">
+          <label>
+            Business name
+            <input value={lead.businessName} onChange={(e) => setLead({ ...lead, businessName: e.target.value })} />
+          </label>
+          <label>
+            Contact name
+            <input value={lead.contactName} onChange={(e) => setLead({ ...lead, contactName: e.target.value })} />
+          </label>
+          <label>
+            Contact email
+            <input type="email" value={lead.contactEmail} onChange={(e) => setLead({ ...lead, contactEmail: e.target.value })} />
+          </label>
+          <label>
+            Contact phone
+            <input value={lead.contactPhone} onChange={(e) => setLead({ ...lead, contactPhone: e.target.value })} />
+          </label>
+        </div>
+        <p className="form-status">
+          Connect Convex with `NEXT_PUBLIC_CONVEX_URL` and run `npx convex dev` to activate lead capture.
+        </p>
       </form>
     </section>
   );

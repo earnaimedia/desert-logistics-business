@@ -18,3 +18,5 @@ yarn-error.*
 *.key
 *.mobileprovision
 .env.local
+
+.vercel

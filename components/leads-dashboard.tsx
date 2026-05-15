@@ -2,11 +2,28 @@
 
 import Link from "next/link";
 import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
+import { anyApi } from "convex/server";
 
 export function LeadsDashboard() {
-  const stats = useQuery(api.leads.dashboardStats);
-  const leads = useQuery(api.leads.listLeads);
+  if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
+    return (
+      <div className="dashboard-shell">
+        <div className="dashboard-head">
+          <div>
+            <p className="eyebrow">Operations dashboard</p>
+            <h1>Convex not connected yet</h1>
+            <p className="section-copy">
+              Add `NEXT_PUBLIC_CONVEX_URL`, log into Convex, and run `npx convex dev` to activate the live lead dashboard.
+            </p>
+          </div>
+          <Link href="/" className="ghost-link">Back to website</Link>
+        </div>
+      </div>
+    );
+  }
+
+  const stats = useQuery(anyApi.leads.dashboardStats);
+  const leads = useQuery(anyApi.leads.listLeads);
 
   return (
     <div className="dashboard-shell">
@@ -41,7 +58,7 @@ export function LeadsDashboard() {
             <span>Monthly revenue</span>
             <span>Follow-up</span>
           </div>
-          {leads?.map((lead) => (
+          {leads?.map((lead: any) => (
             <div className="lead-row" key={lead._id}>
               <span>{lead.businessName}</span>
               <span>{lead.serviceLabel}</span>
