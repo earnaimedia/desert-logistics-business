@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useQuery } from "convex/react";
-import { anyApi } from "convex/server";
+import { api } from "../convex/_generated/api";
 
 export function LeadsDashboard() {
   if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
@@ -22,8 +22,8 @@ export function LeadsDashboard() {
     );
   }
 
-  const stats = useQuery(anyApi.leads.dashboardStats);
-  const leads = useQuery(anyApi.leads.listLeads);
+  const stats = useQuery(api.leads.dashboardStats);
+  const leads = useQuery(api.leads.listLeads);
 
   return (
     <div className="dashboard-shell">

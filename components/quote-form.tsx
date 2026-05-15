@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
-import { anyApi } from "convex/server";
+import { api } from "../convex/_generated/api";
 import { discountForVolume, distanceLabels, pricing, serviceLabels, speedLabels, type DistanceKey, type LeadInput, type ServiceKey, type SpeedKey } from "../lib/pricing";
 
 type QuoteState = {
@@ -47,7 +47,7 @@ export function QuoteForm() {
 }
 
 function ConnectedQuoteForm() {
-  const createLead = useMutation(anyApi.leads.createLead);
+  const createLead = useMutation(api.leads.createLead);
   const [lead, setLead] = useState(initialLead);
   const [quoteState, setQuoteState] = useState<QuoteState | null>(null);
   const [status, setStatus] = useState("");
