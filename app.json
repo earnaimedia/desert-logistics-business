@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Desert Express Logistics",
+    "slug": "desert-express-logistics",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "desertexpress",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.desertexpress.logistics"
+    },
+    "android": {
+      "package": "com.desertexpress.logistics",
+      "edgeToEdgeEnabled": true
+    }
+  }
+}

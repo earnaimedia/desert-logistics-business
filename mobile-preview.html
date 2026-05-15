@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Desert Express Logistics Mobile Preview</title>
+    <link rel="stylesheet" href="./mobile-preview.css" />
+  </head>
+  <body>
+    <main class="preview-shell">
+      <section class="phone" aria-label="Desert Express Logistics mobile app preview">
+        <header class="app-header">
+          <div class="brand-mark">DX</div>
+          <div>
+            <p class="eyebrow">Phoenix Metro</p>
+            <h1>Desert Express Logistics</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Notifications">!</button>
+        </header>
+
+        <section class="screen active" data-screen="home">
+          <div class="hero-card">
+            <p class="eyebrow">Q3 2026 launch command center</p>
+            <h2>Same-day courier, medical transport, and auto parts routes.</h2>
+            <p>
+              A lean Phoenix B2B operation with live tracking, digital POD, and specialty
+              courier workflows.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-action" type="button" data-go="book">New quote</button>
+              <span class="ghost-chip">Mon-Fri 6 AM-7 PM</span>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article>
+              <span>Target SLA</span>
+              <strong>98%+</strong>
+              <p>On-time delivery</p>
+            </article>
+            <article>
+              <span>Break-even</span>
+              <strong>M5-M6</strong>
+              <p>Conservative plan</p>
+            </article>
+            <article>
+              <span>Budget</span>
+              <strong>$40K</strong>
+              <p>Startup plan</p>
+            </article>
+            <article>
+              <span>Launch</span>
+              <strong>Q3 2026</strong>
+              <p>Phoenix metro</p>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <h3>Service Mix</h3>
+            <span>Premium routes</span>
+          </div>
+          <div class="service-strip" aria-label="Service mix">
+            <article class="service-chip">
+              <div class="mini-glyph medical">M</div>
+              <strong>Medical</strong>
+              <p>HIPAA and cold-chain</p>
+            </article>
+            <article class="service-chip">
+              <div class="mini-glyph auto">A</div>
+              <strong>Auto parts</strong>
+              <p>Dealer-to-shop routes</p>
+            </article>
+            <article class="service-chip">
+              <div class="mini-glyph legal">L</div>
+              <strong>Legal</strong>
+              <p>Proof of service</p>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <h3>Coverage</h3>
+            <span>40-mile radius</span>
+          </div>
+          <div class="map-card">
+            <span class="pin phoenix">Phoenix</span>
+            <span class="pin scottsdale">Scottsdale</span>
+            <span class="pin tempe">Tempe</span>
+            <span class="pin mesa">Mesa</span>
+            <span class="pin chandler">Chandler</span>
+            <span class="pin glendale">Glendale</span>
+            <span class="route one"></span>
+            <span class="route two"></span>
+          </div>
+
+          <div class="section-heading">
+            <h3>Active Work</h3>
+            <span>Today</span>
+          </div>
+          <article class="delivery-card">
+            <div class="service-icon medical">M</div>
+            <div>
+              <strong>Banner clinic network</strong>
+              <p>DX-1042 - Phoenix to Scottsdale</p>
+            </div>
+            <span>11:35 AM</span>
+          </article>
+          <article class="delivery-card">
+            <div class="service-icon auto">A</div>
+            <div>
+              <strong>Camelback Auto Group</strong>
+              <p>DX-1043 - Glendale to Tempe</p>
+            </div>
+            <span>12:10 PM</span>
+          </article>
+        </section>
+
+        <section class="screen" data-screen="book">
+          <div class="section-heading">
+            <h3>Book Delivery</h3>
+            <span id="serviceLabel">Medical</span>
+          </div>
+          <div class="segments" role="group" aria-label="Service">
+            <button class="selected" type="button" data-service="medical">Medical</button>
+            <button type="button" data-service="standard">B2B</button>
+            <button type="button" data-service="auto">Auto</button>
+            <button type="button" data-service="legal">Legal</button>
+          </div>
+
+          <div class="quote-card">
+            <p class="eyebrow">Estimated quote</p>
+            <strong id="quotePrice">$54-$72</strong>
+            <p id="quoteNote">Medical rush delivery, 11-20 miles, with 10% volume discount.</p>
+          </div>
+
+          <label class="field">
+            Pickup
+            <input value="Banner clinic - Phoenix" />
+          </label>
+          <label class="field">
+            Dropoff
+            <input value="Reference lab - Scottsdale" />
+          </label>
+          <label class="field">
+            Monthly deliveries
+            <input id="volume" type="number" value="28" />
+          </label>
+
+          <div class="toggle-list">
+            <label><span>Temperature control</span><input type="checkbox" checked /></label>
+            <label><span>Chain of custody</span><input type="checkbox" checked /></label>
+            <label><span>Signature required</span><input type="checkbox" checked /></label>
+            <label><span>Recurring route</span><input type="checkbox" /></label>
+          </div>
+
+          <button class="primary-action wide" type="button" data-go="track">Save and track quote</button>
+        </section>
+
+        <section class="screen" data-screen="track">
+          <div class="section-heading">
+            <h3>Track Deliveries</h3>
+            <span>Live board</span>
+          </div>
+          <article class="detail-card">
+            <p class="eyebrow">DX-1042</p>
+            <h2>Banner clinic network</h2>
+            <div class="status-pill">In transit</div>
+            <div class="map-card small">
+              <span class="pin phoenix">Phoenix</span>
+              <span class="pin scottsdale">Scottsdale</span>
+              <span class="route one"></span>
+            </div>
+            <div class="info-grid">
+              <div><span>Pickup</span><strong>Phoenix</strong></div>
+              <div><span>Dropoff</span><strong>Scottsdale</strong></div>
+              <div><span>ETA</span><strong>11:35 AM</strong></div>
+              <div><span>Driver</span><strong>N. Patel</strong></div>
+            </div>
+            <div class="chips">
+              <span>HIPAA</span>
+              <span>Chain of custody</span>
+              <span>Cold-chain</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="screen" data-screen="ops">
+          <div class="section-heading">
+            <h3>Operations</h3>
+            <span>90-day launch</span>
+          </div>
+          <article class="roadmap-card">
+            <p class="eyebrow">Days 1-30</p>
+            <h2>Foundation</h2>
+            <label><input type="checkbox" checked /> File Arizona LLC, EIN, TPT, and city registration.</label>
+            <label><input type="checkbox" checked /> Secure insurance and outfit the cargo van.</label>
+            <label><input type="checkbox" /> Set up dispatch software and launch outreach.</label>
+          </article>
+          <article class="roadmap-card">
+            <p class="eyebrow">Days 31-60</p>
+            <h2>Soft launch</h2>
+            <label><input type="checkbox" checked /> Accept 3-5 deliveries per day.</label>
+            <label><input type="checkbox" /> Hire first part-time driver.</label>
+            <label><input type="checkbox" /> Begin HIPAA and medical courier training.</label>
+          </article>
+        </section>
+
+        <nav class="tab-bar" aria-label="App sections">
+          <button class="selected" type="button" data-tab="home">Home</button>
+          <button type="button" data-tab="book">Book</button>
+          <button type="button" data-tab="track">Track</button>
+          <button type="button" data-tab="ops">Ops</button>
+        </nav>
+      </section>
+    </main>
+    <script src="./mobile-preview.js"></script>
+  </body>
+</html>
