@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { OperationsShowcase } from "../components/operations-showcase";
 import { QuoteForm } from "../components/quote-form";
+import { TaskHub } from "../components/task-hub";
 
 const industries = [
   {
@@ -94,6 +95,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <TaskHub />
 
       <section id="platform" className="industry-band">
         <div className="industry-band-copy">

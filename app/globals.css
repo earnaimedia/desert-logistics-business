@@ -90,6 +90,7 @@ textarea {
 
 .startup-nav,
 .hero-startup,
+.task-hub,
 .industry-band,
 .launch-grid,
 .toolbelt-grid,
@@ -412,6 +413,132 @@ h3 {
   display: grid;
   gap: 22px;
   padding: 32px;
+}
+
+.task-hub {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+}
+
+.task-hub-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.task-tab,
+.pickup-mode-card,
+.task-link-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.task-tab {
+  min-height: 54px;
+  border-radius: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.task-tab.active,
+.task-tab:hover,
+.pickup-mode-card.active,
+.pickup-mode-card:hover,
+.task-link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(86, 240, 192, 0.3);
+  background: rgba(86, 240, 192, 0.08);
+}
+
+.task-hub-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.task-hub-input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.task-hub-output {
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.task-hub-output strong {
+  display: block;
+  color: var(--ink-strong);
+}
+
+.task-hub-output p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.task-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0 12px;
+}
+
+.task-status-row span,
+.task-status-row small {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+}
+
+.task-status-row span {
+  background: rgba(86, 240, 192, 0.14);
+  color: #96ffdc;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.task-status-row small {
+  background: rgba(111, 141, 255, 0.14);
+  color: #c6d0ff;
+}
+
+.task-grid-links,
+.pickup-card-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.task-link-card,
+.pickup-mode-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-link-card strong,
+.pickup-mode-card strong {
+  color: var(--ink-strong);
+}
+
+.task-link-card p,
+.pickup-mode-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .industry-grid {
@@ -827,6 +954,8 @@ textarea:focus {
   }
 
   .industry-grid,
+  .task-grid-links,
+  .pickup-card-row,
   .toolbelt-grid,
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -865,7 +994,10 @@ textarea:focus {
   }
 
   .industry-grid,
+  .task-hub-tabs,
   .launch-stack,
+  .task-grid-links,
+  .pickup-card-row,
   .toolbelt-grid,
   .startup-stats-grid,
   .mode-pills,
