@@ -53,21 +53,56 @@ export function TaskHub() {
   const zoneState = useMemo(() => zoneLookup[zipCode] ?? null, [zipCode]);
 
   return (
-    <section id="tools" className="task-hub-simple">
-      <div className="task-hub-head">
-        <div>
-          <p className="eyebrow">Tools</p>
-          <h2>Choose a task.</h2>
+    <section id="tools" className="task-hub-simple task-hub-fedex-style">
+      <div className="task-action-strip">
+        <button type="button" className={mode === "track" ? "task-action active" : "task-action"} onClick={() => setMode("track")}>
+          <span className="task-icon">#</span>
+          <strong>Track</strong>
+        </button>
+        <button type="button" className={mode === "coverage" ? "task-action active" : "task-action"} onClick={() => setMode("coverage")}>
+          <span className="task-icon">+</span>
+          <strong>Coverage</strong>
+        </button>
+        <button type="button" className={mode === "pickup" ? "task-action active" : "task-action"} onClick={() => setMode("pickup")}>
+          <span className="task-icon">^</span>
+          <strong>Pickup</strong>
+        </button>
+        <button type="button" className={mode === "service" ? "task-action active" : "task-action"} onClick={() => setMode("service")}>
+          <span className="task-icon">*</span>
+          <strong>Service</strong>
+        </button>
+        <div className="task-track-inline">
+          <input
+            value={trackingCode}
+            onChange={(event) => setTrackingCode(event.target.value)}
+            placeholder="Tracking number"
+            aria-label="Tracking number"
+          />
+          <button type="button" className="track-button" onClick={() => setMode("track")}>
+            Track
+          </button>
         </div>
-        <select value={mode} onChange={(event) => setMode(event.target.value as HubMode)} className="hub-select">
-          <option value="track">Track a job</option>
-          <option value="coverage">Check coverage</option>
-          <option value="pickup">Plan a pickup</option>
-          <option value="service">Choose a service</option>
-        </select>
       </div>
 
-      <div className="task-hub-simple-panel">
+      <div className="task-hub-simple-panel task-hub-detail-panel">
+        <div className="task-hub-head">
+          <div>
+            <p className="eyebrow">Tools</p>
+            <h2>
+              {mode === "track" ? "Track a job." : null}
+              {mode === "coverage" ? "Check coverage." : null}
+              {mode === "pickup" ? "Plan a pickup." : null}
+              {mode === "service" ? "Choose a service." : null}
+            </h2>
+          </div>
+          <select value={mode} onChange={(event) => setMode(event.target.value as HubMode)} className="hub-select">
+            <option value="track">Track a job</option>
+            <option value="coverage">Check coverage</option>
+            <option value="pickup">Plan a pickup</option>
+            <option value="service">Choose a service</option>
+          </select>
+        </div>
+
         {mode === "track" ? (
           <>
             <label>

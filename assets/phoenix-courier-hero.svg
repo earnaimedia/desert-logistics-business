@@ -1,63 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Desert Express courier van in Phoenix</title>
-  <desc id="desc">A branded delivery van driving through a stylized Phoenix business corridor at sunrise.</desc>
+  <title id="title">Desert Sonic courier truck in Phoenix</title>
+  <desc id="desc">A branded Desert Sonic truck driving through a stylized Phoenix corridor with route lines and desert sunrise tones.</desc>
   <defs>
     <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#d8edf1"/>
-      <stop offset="0.48" stop-color="#f2d2a3"/>
-      <stop offset="1" stop-color="#eaa06c"/>
+      <stop offset="0" stop-color="#f4f8ff"/>
+      <stop offset="0.42" stop-color="#f1e2c8"/>
+      <stop offset="1" stop-color="#e8b27a"/>
+    </linearGradient>
+    <linearGradient id="skyline" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#325377"/>
+      <stop offset="1" stop-color="#20384f"/>
     </linearGradient>
     <linearGradient id="road" x1="0" x2="1">
       <stop offset="0" stop-color="#263643"/>
       <stop offset="1" stop-color="#17242e"/>
+    </linearGradient>
+    <linearGradient id="truckBody" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef4fb"/>
+    </linearGradient>
+    <linearGradient id="sonicStripe" x1="0" x2="1">
+      <stop offset="0" stop-color="#5b1aa0"/>
+      <stop offset="1" stop-color="#ff7a00"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#152029" flood-opacity="0.24"/>
     </filter>
   </defs>
   <rect width="1200" height="900" fill="url(#sky)"/>
-  <circle cx="914" cy="188" r="86" fill="#c68b32" opacity="0.92"/>
-  <path d="M0 534 C174 480 321 526 482 492 C650 456 760 416 954 454 C1056 474 1140 462 1200 442 L1200 900 L0 900 Z" fill="#d8bd8e"/>
-  <path d="M0 582 C210 520 352 594 530 546 C674 507 803 520 951 560 C1062 590 1134 560 1200 542 L1200 900 L0 900 Z" fill="#a77750" opacity="0.6"/>
+  <circle cx="954" cy="170" r="94" fill="#f0bb65" opacity="0.95"/>
+  <path d="M0 500 C172 442 348 518 526 472 C682 432 840 440 1016 470 C1092 484 1150 474 1200 454 L1200 900 L0 900 Z" fill="#e9d4aa"/>
+  <path d="M0 566 C200 500 358 582 548 536 C710 498 820 508 1018 548 C1084 562 1146 550 1200 538 L1200 900 L0 900 Z" fill="#c48c5e" opacity="0.68"/>
+  <path d="M0 622 C166 604 306 642 460 618 C652 588 760 572 934 596 C1036 610 1114 600 1200 584 L1200 900 L0 900 Z" fill="#b16d48" opacity="0.4"/>
   <g opacity="0.94">
-    <rect x="92" y="274" width="92" height="276" rx="4" fill="#24475a"/>
-    <rect x="208" y="230" width="126" height="320" rx="4" fill="#315d73"/>
-    <rect x="362" y="308" width="88" height="242" rx="4" fill="#24475a"/>
-    <rect x="800" y="270" width="118" height="280" rx="4" fill="#315d73"/>
-    <rect x="946" y="330" width="72" height="220" rx="4" fill="#24475a"/>
-    <rect x="1038" y="246" width="104" height="304" rx="4" fill="#315d73"/>
+    <rect x="102" y="286" width="84" height="264" rx="8" fill="url(#skyline)"/>
+    <rect x="210" y="238" width="132" height="312" rx="8" fill="#315d73"/>
+    <rect x="370" y="322" width="82" height="228" rx="8" fill="url(#skyline)"/>
+    <rect x="782" y="256" width="122" height="294" rx="8" fill="#315d73"/>
+    <rect x="934" y="326" width="84" height="224" rx="8" fill="url(#skyline)"/>
+    <rect x="1046" y="226" width="98" height="324" rx="8" fill="#315d73"/>
   </g>
   <g opacity="0.24" fill="#ffffff">
-    <rect x="116" y="312" width="44" height="18"/>
-    <rect x="116" y="360" width="44" height="18"/>
-    <rect x="232" y="274" width="70" height="18"/>
-    <rect x="232" y="326" width="70" height="18"/>
-    <rect x="826" y="312" width="64" height="18"/>
-    <rect x="826" y="364" width="64" height="18"/>
-    <rect x="1064" y="292" width="54" height="18"/>
-    <rect x="1064" y="344" width="54" height="18"/>
+    <rect x="122" y="318" width="44" height="18"/>
+    <rect x="122" y="366" width="44" height="18"/>
+    <rect x="236" y="282" width="74" height="18"/>
+    <rect x="236" y="334" width="74" height="18"/>
+    <rect x="806" y="308" width="66" height="18"/>
+    <rect x="806" y="360" width="66" height="18"/>
+    <rect x="1070" y="280" width="54" height="18"/>
+    <rect x="1070" y="332" width="54" height="18"/>
   </g>
   <path d="M0 652 L1200 574 L1200 900 L0 900 Z" fill="url(#road)"/>
   <path d="M-40 778 L1220 690" stroke="#f6f3ec" stroke-width="12" stroke-dasharray="90 70" opacity="0.85"/>
+  <g fill="none" stroke="#ffffff" stroke-width="5" opacity="0.58">
+    <path d="M86 202 C190 170 250 190 338 164"/>
+    <path d="M690 182 C776 154 844 170 916 146"/>
+  </g>
   <g filter="url(#shadow)" transform="translate(210 428)">
-    <path d="M87 110 L535 76 C592 72 642 104 665 156 L696 226 L742 240 C762 246 776 264 776 285 L776 347 L65 398 L44 220 C37 160 37 114 87 110 Z" fill="#ffffff"/>
-    <path d="M92 110 L316 93 L326 263 L62 282 L45 173 C39 133 55 113 92 110 Z" fill="#f5fafb"/>
+    <path d="M87 110 L535 76 C592 72 642 104 665 156 L696 226 L742 240 C762 246 776 264 776 285 L776 347 L65 398 L44 220 C37 160 37 114 87 110 Z" fill="url(#truckBody)"/>
+    <path d="M92 110 L316 93 L326 263 L62 282 L45 173 C39 133 55 113 92 110 Z" fill="#f8fbff"/>
     <path d="M342 91 L532 78 C578 75 614 96 634 137 L666 202 L354 224 Z" fill="#e8f2f4"/>
-    <path d="M382 111 L522 101 C552 99 576 113 590 141 L606 174 L390 190 Z" fill="#276f95"/>
-    <path d="M118 182 L296 169 L302 222 L124 235 Z" fill="#176b55"/>
-    <text x="140" y="215" fill="#ffffff" font-size="37" font-family="Arial, sans-serif" font-weight="800">DX</text>
-    <text x="206" y="213" fill="#ffffff" font-size="22" font-family="Arial, sans-serif" font-weight="700">DESERT EXPRESS</text>
+    <path d="M382 111 L522 101 C552 99 576 113 590 141 L606 174 L390 190 Z" fill="#2b6ca8"/>
+    <path d="M118 172 L486 145 L494 214 L124 241 Z" fill="url(#sonicStripe)"/>
+    <text x="140" y="198" fill="#ffffff" font-size="36" font-family="Arial, sans-serif" font-weight="800">DS</text>
+    <text x="214" y="196" fill="#ffffff" font-size="22" font-family="Arial, sans-serif" font-weight="700">DESERT SONIC</text>
+    <text x="214" y="221" fill="#f6e5d7" font-size="14" font-family="Arial, sans-serif" font-weight="700">COURIER + MOVING</text>
     <path d="M43 280 L777 226 L777 348 L65 398 Z" fill="#f4f0e9"/>
-    <path d="M60 332 L778 280" stroke="#c68b32" stroke-width="16"/>
+    <path d="M60 332 L778 280" stroke="#ff7a00" stroke-width="16"/>
     <circle cx="198" cy="372" r="70" fill="#152029"/>
     <circle cx="198" cy="372" r="35" fill="#d8e0e6"/>
     <circle cx="604" cy="342" r="70" fill="#152029"/>
     <circle cx="604" cy="342" r="35" fill="#d8e0e6"/>
     <path d="M696 228 L756 244 C766 247 773 256 775 266 L682 273 Z" fill="#b75b35"/>
   </g>
-  <g fill="none" stroke="#176b55" stroke-width="9" stroke-linecap="round" opacity="0.78">
-    <path d="M836 404 C890 348 950 344 1000 390"/>
-    <path d="M855 430 C898 392 946 388 984 420"/>
-    <path d="M878 454 C910 432 942 430 966 450"/>
+  <g fill="none" stroke="#5b1aa0" stroke-width="9" stroke-linecap="round" opacity="0.32">
+    <path d="M832 398 C886 342 948 340 998 386"/>
+    <path d="M852 424 C896 386 944 382 982 414"/>
+    <path d="M874 448 C908 426 940 426 966 446"/>
+  </g>
+  <g fill="#ffffff" opacity="0.92">
+    <circle cx="836" cy="398" r="8"/>
+    <circle cx="910" cy="372" r="8"/>
+    <circle cx="998" cy="386" r="8"/>
   </g>
 </svg>
