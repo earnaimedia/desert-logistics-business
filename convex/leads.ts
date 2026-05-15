@@ -12,10 +12,12 @@ const leadValidator = {
     v.literal("medical"),
     v.literal("auto"),
     v.literal("legal"),
-    v.literal("pharmacy")
+    v.literal("pharmacy"),
+    v.literal("whiteGlove"),
+    v.literal("moving")
   ),
-  deliverySpeed: v.union(v.literal("sameDay"), v.literal("rush"), v.literal("stat")),
-  distanceBand: v.union(v.literal("near"), v.literal("mid"), v.literal("far")),
+  deliverySpeed: v.union(v.literal("sameDay"), v.literal("rush"), v.literal("stat"), v.literal("scheduled")),
+  distanceBand: v.union(v.literal("near"), v.literal("mid"), v.literal("far"), v.literal("regional")),
   routeFrequency: v.union(v.literal("one-time"), v.literal("weekly"), v.literal("daily"), v.literal("monthly")),
   deliveriesPerMonth: v.number(),
   pickupCity: v.string(),
@@ -24,6 +26,19 @@ const leadValidator = {
   coldChain: v.boolean(),
   signatureRequired: v.boolean(),
   chainOfCustody: v.boolean(),
+  moveSize: v.union(
+    v.literal("studio"),
+    v.literal("oneBedroom"),
+    v.literal("twoBedroom"),
+    v.literal("office"),
+    v.literal("specialty")
+  ),
+  crewSize: v.union(v.literal("twoPerson"), v.literal("threePerson"), v.literal("fourPerson")),
+  vehicleClass: v.union(v.literal("sedan"), v.literal("cargoVan"), v.literal("sprinter"), v.literal("boxTruck")),
+  stairs: v.boolean(),
+  assembly: v.boolean(),
+  packing: v.boolean(),
+  heavyItems: v.boolean(),
 };
 
 export const createLead = mutation({

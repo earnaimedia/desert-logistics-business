@@ -1,94 +1,116 @@
 import Link from "next/link";
+import { OperationsShowcase } from "../components/operations-showcase";
 import { QuoteForm } from "../components/quote-form";
 
-const serviceCards = [
+const industries = [
   {
-    title: "Medical courier",
-    copy: "Specimens, pharmaceuticals, records, and chain-of-custody handoffs with premium pricing and documented delivery.",
+    title: "Healthcare and labs",
+    copy: "STAT moves, refrigerated chain-of-custody, recurring specimen sweeps, and pharmacy handoffs built for documented compliance.",
   },
   {
-    title: "Auto parts routes",
-    copy: "Daily dealer-to-shop and warehouse-to-repair routes with scheduled pickups and oversized item handling.",
+    title: "Retail and white-glove",
+    copy: "Oversized deliveries, room-of-choice placement, returns pickup, and post-purchase visibility for premium customer experiences.",
   },
   {
-    title: "Legal and pharmacy",
-    copy: "Court filings, signed document delivery, prescription transport, and time-critical professional service runs.",
+    title: "Moving and relocation",
+    copy: "Apartment moves, office relocations, staging support, crew assignment, and truck sizing from the same booking surface.",
   },
   {
-    title: "Recurring business delivery",
-    copy: "Dedicated B2B route coverage for offices, labs, warehouses, and operations teams across Phoenix.",
+    title: "Business operations",
+    copy: "Auto parts routes, legal filings, interoffice logistics, and recurring scheduled delivery plans across the metro.",
   },
+];
+
+const productStats = [
+  { value: "15m", label: "priority lead follow-up target" },
+  { value: "4x", label: "service modes in one booking flow" },
+  { value: "24/7", label: "booking, tracking, and dispatch surface" },
+  { value: "80mi", label: "regional moving and final-mile radius" },
 ];
 
 export default function HomePage() {
   return (
-    <main className="site-shell">
-      <section className="hero-panel">
-        <div className="hero-copy">
-          <p className="eyebrow">Desert Express Logistics</p>
-          <h1>Phoenix courier operations, quoting, and lead capture in one web app.</h1>
+    <main className="site-shell site-shell-startup">
+      <section className="startup-nav">
+        <div className="brand-lockup">
+          <span className="brand-mark">DS</span>
+          <div>
+            <strong>Desert Sonic</strong>
+            <span>Courier, moving, and final-mile operations</span>
+          </div>
+        </div>
+        <div className="nav-actions">
+          <a href="#quote" className="ghost-link">Book a quote</a>
+          <Link href="/dashboard" className="primary-button">Operations dashboard</Link>
+        </div>
+      </section>
+
+      <section className="hero-startup">
+        <div className="hero-startup-copy">
+          <p className="eyebrow">Built for what logistics should feel like next</p>
+          <h1>The startup-grade operating system for courier, white-glove, and moving jobs.</h1>
           <p className="section-copy">
-            A customer-facing website and an operator-facing pipeline built for same-day delivery, medical courier
-            contracts, auto parts routes, and recurring B2B service across the Phoenix metro area.
+            Desert Sonic is designed like a real product: instant pricing, coverage intelligence, job-type aware
+            booking, tracking states, and a lead pipeline that hands dispatch-ready opportunities to the team.
           </p>
           <div className="hero-actions">
-            <a href="#quote" className="primary-button">Start quoting</a>
-            <Link href="/dashboard" className="ghost-link">Open dashboard</Link>
+            <a href="#quote" className="primary-button">Get instant pricing</a>
+            <a href="#platform" className="ghost-link">See the platform</a>
           </div>
-          <div className="mini-stats">
-            <div><strong>98%+</strong><span>on-time target</span></div>
-            <div><strong>40 mi</strong><span>service radius</span></div>
-            <div><strong>5 tiers</strong><span>service mix</span></div>
+          <div className="startup-stats-grid">
+            {productStats.map((item) => (
+              <article key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </article>
+            ))}
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="route-layer" aria-hidden="true">
-            <span className="route stroke-a" />
-            <span className="route stroke-b" />
-            <span className="route stroke-c" />
-            <span className="route-dot dot-a" />
-            <span className="route-dot dot-b" />
-            <span className="route-dot dot-c" />
+        <div className="hero-command-center">
+          <div className="hero-command-grid" aria-hidden="true">
+            <span className="grid-line line-a" />
+            <span className="grid-line line-b" />
+            <span className="grid-line line-c" />
+            <span className="signal-node node-a" />
+            <span className="signal-node node-b" />
+            <span className="signal-node node-c" />
           </div>
-          <img src="/assets/phoenix-courier-hero.svg" alt="Desert Express van" />
-          <div className="hero-float-card">
-            <span>Active dispatch intelligence</span>
-            <strong>Lead scoring, quote ranges, revenue estimates, and operator follow-up in one flow.</strong>
+          <div className="command-card command-card-primary">
+            <span>Dispatch board</span>
+            <strong>Courier, moving, and white-glove jobs all enter the same operating lane.</strong>
+            <p>Route fit, truck fit, crew fit, and proof-of-delivery logic are visible before a lead is saved.</p>
           </div>
-        </div>
-      </section>
-
-      <section className="services-grid">
-        {serviceCards.map((service) => (
-          <article className="service-card" key={service.title}>
-            <strong>{service.title}</strong>
-            <p>{service.copy}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="feature-band">
-        <div>
-          <p className="eyebrow">Functional stack</p>
-          <h2>Built to run the business, not just market it.</h2>
-        </div>
-        <div className="feature-list">
-          <article>
-            <strong>Convex-backed leads</strong>
-            <p>Every quote request is stored with pricing, projected monthly revenue, lead tier, and recommended follow-up.</p>
-          </article>
-          <article>
-            <strong>Operator dashboard</strong>
-            <p>Track total leads, pipeline value, and priority opportunities from a dedicated internal page.</p>
-          </article>
-          <article>
-            <strong>Vercel-ready frontend</strong>
-            <p>Next.js App Router project structure with a clean path to deploy once Node is upgraded.</p>
-          </article>
+          <div className="command-card command-card-float">
+            <span>Now routing</span>
+            <strong>Phoenix {"->"} Tempe {"->"} Scottsdale</strong>
+            <p>Medical specimen sweep, office move assist, and same-day retail recovery running in parallel.</p>
+          </div>
+          <div className="command-chip-row">
+            <span>Same-day</span>
+            <span>White-glove</span>
+            <span>Moving</span>
+            <span>Tracking</span>
+          </div>
         </div>
       </section>
 
+      <section id="platform" className="industry-band">
+        <div className="industry-band-copy">
+          <p className="eyebrow">Industry coverage</p>
+          <h2>A single front door for every logistics job your market actually buys.</h2>
+        </div>
+        <div className="industry-grid">
+          {industries.map((industry) => (
+            <article className="industry-card" key={industry.title}>
+              <strong>{industry.title}</strong>
+              <p>{industry.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <OperationsShowcase />
       <QuoteForm />
     </main>
   );

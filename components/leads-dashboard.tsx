@@ -55,6 +55,7 @@ export function LeadsDashboard() {
             <span>Business</span>
             <span>Service</span>
             <span>Tier</span>
+            <span>Ops summary</span>
             <span>Monthly revenue</span>
             <span>Follow-up</span>
           </div>
@@ -63,6 +64,7 @@ export function LeadsDashboard() {
               <span>{lead.businessName}</span>
               <span>{lead.serviceLabel}</span>
               <span className={`tier-badge tier-${lead.leadTier}`}>{lead.leadTier}</span>
+              <span>{lead.operationsSummary}</span>
               <span>${lead.estimatedMonthlyRevenue}</span>
               <span>{lead.recommendedFollowUp}</span>
             </div>
